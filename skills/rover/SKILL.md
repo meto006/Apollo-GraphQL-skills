@@ -12,7 +12,7 @@ license: MIT
 compatibility: Node.js v18+, Linux/macOS/Windows
 metadata:
   author: apollographql
-  version: "1.1.0"
+  version: "1.1.1"
 allowed-tools: Bash(rover:*) Bash(npm:*) Bash(npx:*) Read Write Edit Glob Grep
 ---
 
@@ -220,6 +220,8 @@ rover graph fetch my-graph@current | rover schema search - "playback"
 # Zoom into a coordinate, expanding referenced types one level
 rover graph fetch my-graph@current | rover schema describe - --coord <Type.field> --depth 1
 ```
+
+**Coordinate forms:** `--coord` accepts a type (`User`), a field (`User.posts`), a field argument (`Type.field(arg:)`), or a directive (`@deprecated`) — omit it for the overview.
 
 **`search` vs `describe`:** reach for `rover schema search` first when matching a concept or keyword and you don't yet know the field name — it finds **nested** fields and shows the path from a root operation. The `describe` overview lists only root fields, so `search` is how you locate fields buried deeper. Use `describe` for the overview or once you know the type/field coordinate.
 
